@@ -14,17 +14,21 @@ hashmap = {line: 0 for line in lines}
 
 
 
+
+
 def function (input, arr, hashMap):
     ret = False
+
     if len(input) ==0:
-        hashMap[input] = True
         return True
+    
     if input in hashMap :
         return hashMap[input]
     
     for i in arr:
         if input.startswith(i):
-            ret= function (input[len(i):], arr , hashMap)
+            ret= function (input[len(i):], arr , hashMap) or ret
+
     hashMap[input] = ret
     return ret
 

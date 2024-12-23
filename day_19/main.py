@@ -27,7 +27,6 @@ def checkIfExists(target , listOfItems , lastValue):
         if target.startswith(item):
             target = target[len(item) :]
             cpt =-1
-            print(item, end= ',')
         cpt +=1
     return 0
 
@@ -87,21 +86,16 @@ def countOccurences (target , listOfItems):
 
 
 if __name__ == "__main__":
-    # for key in hashmap:
-    #     x= len(result)
-    #     for i in range( 0 ,x):
-    #         result = perm(result)
-    #         returnVal = checkIfExists(key , result , hashmap[key] )
-    #         hashmap[key] = returnVal
-    #     result= perm(result)
-
-    # count = sum(1 for value in hashmap.values() if value == 1)
-
-    # # Print the count
-    # print(f"Number of entries with value 1: {count}")
-
-
     for key in hashmap:
-        val = countOccurences (key , result)
-        print(val)
+        x= len(result)
+        for i in range( 0 ,x):
+            result = perm(result)
+            returnVal = checkIfExists(key , result , hashmap[key] )
+            hashmap[key] = returnVal
+        result= perm(result)
+
+    count = sum(1 for value in hashmap.values() if value == 1)
+
+    # Print the count
+    print(f"Number of entries with value 1: {count}")
 
